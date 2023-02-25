@@ -1,2 +1,3 @@
 # Django-WebSite
-** If statement to fix on footer.html **
+<br>
+<b>The website will contain the hands-on Lab and final project application by accomploshing the course</b>
