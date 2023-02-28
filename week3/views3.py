@@ -9,7 +9,7 @@ from django.http import Http404
 # Create your class based views here.
 class CourseListView(generic.ListView):
       # generic build-in views
-      template_view = 'onlinecourse/course_list.html'
+      template_view = 'onlinecourse/course_list.html'  # 
       context_object_name = 'course_list'
       # provide list objects
       def get_queryset(self):
@@ -32,7 +32,7 @@ class Enroll(View):
        #  Increase total by 1
        course.total_enrollment += 1
        course.save()
-       return HttpResponseRedirect(reverse(viewname='onlinecourse:course_detail', args=(course.id,)))
+       return HttpResponseRedirect(reverse(viewname='lab3:course_detail2', args=(course.id,)))
 
 
 

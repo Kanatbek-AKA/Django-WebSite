@@ -36,13 +36,13 @@
             <a href="#" class="btn btn-link"
               >{{ user.first_name }}({{ user.username }})</a
             >
-            <a class="btn btn-link" href="{% url 'lab4:logout' %}">Logout</a>
+            <a class="btn btn-link" href="{% url 'lab4:logout3' %}">Logout</a>
           </li>
           {% else %}
           <li>
             <!-- {% comment %}   {% endcomment %}  -->
             <form
-              action="{% url 'lab4:login' %}"
+              action="{% url 'lab4:login3' %}"
               method="post"
               class="form-inline"
             >
@@ -61,7 +61,7 @@
                   class="form-control"
                 />
                 <button type="submit" class="btn btn-primary">Login</button>
-                <a href="{% url 'lab4:registration' %}" class="btn btn-link"
+                <a href="{% url 'lab4:registration3' %}" class="btn btn-link"
                   >Sign Up</a
                 >
                 <!--{% comment %}  {% endcomment %} -->
@@ -101,7 +101,7 @@
             </h5>
             <p class="card-text">{{ course.description}}</p>
             <!--Stylize card description with .card-text class -->
-            <form action="{% url 'lab4:enroll' course.id %}" method="post">
+            <form action="{% url 'lab4:enroll3' course.id %}" method="post">
               {% csrf_token %}
               <input type="submit" value="Enroll" class="btn btn-primary" />
               <!--Stylize Enroll button with .btn and .btn-primary class -->

@@ -18,18 +18,18 @@ urlpatterns = [
     path(route='week5/', view=views.Week5PageView.as_view(), name='week5'), 
     # Hands-on Labs
     # Week 1
-    path(route='handson/', view=views1.index, name='lab1'),
-    path(route='exercise1/handson/', view=views1.get_date, name='date'),
+    path(route='week1/handson/', view=views1.index, name='lab1'),
+    path(route='week1/handson/exercise1/', view=views1.get_date, name='date'),
     # Week 2
-    path('handson2/', include(('week2.urls', 'week2'), namespace='lab2')), # giving namespace
+    path('week2/handson2/', include(('week2.urls', 'week2'), namespace='lab2')), # giving namespace
     #  Week 3  need to fix 
-    path('handson3/', include(('week3.urls', 'week3'), namespace="lab3")),
+    path('week3/handson3/', include(('week3.urls', 'week3'), namespace="lab3")),
     # Week 4
-    path('handson4/', include(('week4.urls', 'week4'), namespace='lab4')),
+    path('week4/handson4/', include(('week4.urls', 'week4'), namespace='lab4')),
     # Week 5
-    path('handson5/', include(('week5.urls', 'week5'), namespace='lab5')),
+    path('week5/handson5/', include(('week5.urls', 'week5'), namespace='lab5')),
     
-    
+    # 
     # re_path(r'^registration/$', views.registration_request, name='registration'),
     # re_path(r'^login/$', views.login_request, name='login'),
     # re_path(r'^logout/$', views.logout_request, name='logout'),

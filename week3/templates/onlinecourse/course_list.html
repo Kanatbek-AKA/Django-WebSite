@@ -31,7 +31,7 @@
               <b>{{course.total_enrollment}} enrolled</b>
             </p>
             <p>{{ course.description }}</p>
-            <form action="{% url 'lab3:enroll' course.id %}" method="post">
+            <form action="{% url 'lab3:enroll2' course.id %}" method="post">
               {% csrf_token %}
               <input class="button" type="submit" value="Enroll" />
             </form>

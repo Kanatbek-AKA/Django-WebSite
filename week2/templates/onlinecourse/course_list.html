@@ -12,10 +12,10 @@
     <div>
       <!-- Just get url path, it will be solved-->
       <nav>
-        {% if request.path == '/handson2/week2/' %}
+        {% if request.path == '/week2/handson2/onlinecourse1/' %}
           <li style='list-style-type:none;'>(`.-.`)</li>
-        {% elif request.path == '/handson2/onlinecourse/course' or request.path == '/handson2/onlinecourse/course/<int:id>' %}
-          <li><a href="handson2/week2/" style='text-decoration:none; color:darkgoldenrod;'>Home</a></li>
+        {% elif request.path == '/week2/handson2/onlinecourse1/course' or request.path == '/week2/handson2/onlinecourse1/course/<int:id>' %}
+          <li><a href="/week2/handson2/onlinecourse1/" style='text-decoration:none; color:darkgoldenrod;'>Nothing to do</a></li>
         {% endif %}
       </nav>
     </div>
@@ -37,7 +37,7 @@
               <p>{{ course.description }}</p>
 
               <!-- Form to create a course view -->
-              <form action="{% url 'lab2/course:enroll' course.id %}" method="post">
+              <form action="{% url 'lab2:enroll' course.id %}" method="post">
                   {% csrf_token %}     <!--Retrieved ....? -->
                   <input type="submit" value="Enroll" class="button" />
               </form>

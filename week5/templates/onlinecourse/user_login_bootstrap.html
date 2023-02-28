@@ -21,13 +21,13 @@
             <a class="btn btn-link" href="#"
               >{{ user.first_name }}({{ user.username }})</a
             >
-            <a class="btn btn-link" href="{% url 'lab5:logout' %}">Logout</a>
+            <a class="btn btn-link" href="{% url 'lab5:logoutF' %}">Logout</a>
           </li>
           {% else %}
           <li>
             <form
               class="form-inline"
-              action="{% url 'lab5:login' %}"
+              action="{% url 'lab5:loginF' %}"
               method="post"
             >
               {% csrf_token %}
@@ -45,7 +45,7 @@
                   name="psw"
                 />
                 <button class="btn btn-primary" type="submit">Login</button>
-                <a class="btn btn-link" href="{% url 'lab5:registration' %}"
+                <a class="btn btn-link" href="{% url 'lab5:registrationF' %}"
                   >Sign Up</a
                 >
               </div>
@@ -57,7 +57,7 @@
     </nav>
 
     <!-- Stylize Login form -->
-    <form action="{% url 'lab5:login' %}" method="post">
+    <form action="{% url 'lab5:loginF' %}" method="post">
       {% csrf_token %}
       <div class="container">
         <!--Style root div with .container class -->

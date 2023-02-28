@@ -36,7 +36,7 @@ def registration_request(request):
             user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name,
                                             password=password)
             login(request, user)
-            return redirect("onlinecourse:index")
+            return redirect("lab5:index")
         else:
             context['message'] = "User already exists."
             return render(request, 'onlinecourse/user_registration_bootstrap.html', context)
@@ -50,7 +50,7 @@ def login_request(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('onlinecourse:index')
+            return redirect('lab5:index')
         else:
             context['message'] = "Invalid username or password."
             return render(request, 'onlinecourse/user_login_bootstrap.html', context)
@@ -60,7 +60,7 @@ def login_request(request):
 
 def logout_request(request):
     logout(request)
-    return redirect('onlinecourse:index')
+    return redirect('lab5:index')
 
 
 def check_if_enrolled(user, course):
@@ -104,7 +104,7 @@ def enroll(request, course_id):
         course.total_enrollment += 1
         course.save()
 
-    return HttpResponseRedirect(reverse(viewname='onlinecourse:course_details', args=(course.id,)))
+    return HttpResponseRedirect(reverse(viewname='lab5:course_detailsF', args=(course.id,)))
 
 
 # <HINT> Create a submit view to create an exam submission record for a course enrollment,

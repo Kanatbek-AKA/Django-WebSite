@@ -7,19 +7,19 @@ urlpatterns = [
     # route is a string contains a URL pattern
     # view refers to the view function
     # name the URL
-    path(route='week5/project/', view=views5.CourseListView3.as_view(), name='index'),
+    path(route='project/', view=views5.CourseListView3.as_view(), name='index'),
     # 
-    path('registration/', views5.registration_request, name='registration'),
-    path('login/', views5.login_request, name='login'),
-    path('logout/', views5.logout_request, name='logout'),
+    path('registration/', views5.registration_request, name='registrationF'),
+    path('login/', views5.login_request, name='loginF'),
+    path('logout/', views5.logout_request, name='logoutF'),
     # ex: /onlinecourse/5/
-    path('week5/project/course/<int:pk>/', views5.CourseDetailView3.as_view(), name='course_details'),
+    path('project/course5/<int:pk>/', views5.CourseDetailView3.as_view(), name='course_detailsF'),
     # ex: /enroll/5/
-    path('week5/project/course/<int:course_id>/enroll/', views5.enroll, name='enroll'),
+    path('project/course5/<int:course_id>/enroll/', views5.enroll, name='enrollF'),
 
     # <HINT> Create a route for submit view
-    # path('onlinecourse/course/<int:course_id>/', views.submit, name='submit'),
+    path('project/course5/<int:course_id>/', views5.submit, name='submitF'),
     # <HINT> Create a route for show_exam_result view
-    # path('onlinecourse/course/<int:course_id>/', views.show_exam_result, name='show_exam_result'),
+    path('project/course5/<int:course_id>/', views5.show_exam_result, name='show_exam_resultF'),
     
  ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

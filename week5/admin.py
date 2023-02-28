@@ -11,27 +11,27 @@ class ChoiceInline(admin.StackedInline):
     model = Choice5 
     extra = 3                    # Test
 
-class LessonInline(admin.StackedInline):
+class LessonInline5(admin.StackedInline):
     model = Lesson5
     extra = 5
 
 
 # Register your models here.
-class CourseAdmin(admin.ModelAdmin):
-    inlines = [LessonInline]
+class CourseAdmin5(admin.ModelAdmin):
+    inlines = [LessonInline5]
     list_display = ('name', 'pub_date')
     list_filter = ['pub_date']
     search_fields = ['name', 'description']
 
 
-class LessonAdmin(admin.ModelAdmin):
+class LessonAdmin5(admin.ModelAdmin):
     list_display = ['title']
 
 
 # <HINT> Register Question and Choice models here
 admin.site.register(Question5)  #
 admin.site.register(Choice5)    # 
-admin.site.register(Course5, CourseAdmin)
-admin.site.register(Lesson5, LessonAdmin)
+admin.site.register(Course5, CourseAdmin5)
+admin.site.register(Lesson5, LessonAdmin5)
 admin.site.register(Instructor5)
 admin.site.register(Learner5)

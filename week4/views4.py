@@ -39,7 +39,7 @@ def registration_request(request):
           # Create user 
           user = User.objects.create_user(username=username, first_name=firstname, last_name=lastname, password=password)
           login(request, user)
-          return redirect("onlinecourse:popular_course_list")   # urls.py
+          return redirect("onlinecourse:popular_course_list3")   # urls.py
        else:
           return render(request, 'onlinecourse/user_registration.html', context)
 
@@ -56,7 +56,7 @@ def login_request(request):
       if user is not None:
          # valid user call login
          login(request, user)
-         return redirect('onlinecourse:popular_course_list')
+         return redirect('onlinecourse:popular_course_list3')
       else:
          return render(request, 'onlinecourse/user_login.html', context)
    else:
@@ -67,7 +67,7 @@ def logout_request(request):
    print("Log out the user `{}` ".format(request.user.username))
    # logout user 
    logout(request)
-   return redirect("onlinecourse:popular_course_list")   # also the name for html pages inside views
+   return redirect("onlinecourse:popular_course_list3")   # also the name for html pages inside views
 
 
 # Add a class-based course list view
@@ -87,7 +87,6 @@ class CourseDetailsView2(generic.DetailView):
 
 
 class EnrollView2(View):
-
     # Handles get request
     def post(self, request, *args, **kwargs):
         course_id = kwargs.get('pk')
@@ -95,4 +94,4 @@ class EnrollView2(View):
         # Create an enrollment
         course.total_enrollment += 1
         course.save()
-        return HttpResponseRedirect(reverse(viewname='onlinecourse:course_details', args=(course.id,)))
+        return HttpResponseRedirect(reverse(viewname='onlinecourse:course_details3', args=(course.id,)))

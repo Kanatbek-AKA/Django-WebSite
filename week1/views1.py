@@ -10,7 +10,7 @@ def index(request):
                   "<meta charset='utf-8'/>" \
                 "</head>" \
                 "<body>" \
-                "<nav style='margin-top:30px; margin-left:30px; border: thin solid green; width:90px; background:lightcyan; height:20px;'> <a href='/exercise1/handson/' style='padding:5px; text-decoration:none; font-weight:bold;'>Next page</a> </nav>" \
+                "<nav style='margin-top:30px; margin-left:30px; border: thin solid green; width:90px; background:lightcyan; height:20px;'> <a href='/week1/handson/exercise1/' style='padding:5px; text-decoration:none; font-weight:bold;'>Next page</a> </nav>" \
                 "<header>" \
                   "<h1 style='margin-left:30px;'>This is your first Django App created in string i.e. no templates used.<h1/>" \
                 "</header>" \
@@ -37,7 +37,7 @@ from datetime import date     # import built-in function date from package datet
 def get_date(request):
   today = date.today()        
   template = """<html> 
-                 <nav style='width:60px; margin-top:30px; margin-left:30px; border: thin solid green; background:lightcyan;  height:20px;'> <a href='/handson/' style='padding:5px; margin:5px; color:black; text-decoration:none;'>Home</a> </nav> 
+                 <nav style='width:60px; margin-top:30px; margin-left:30px; border: thin solid green; background:lightcyan;  height:20px;'> <a href='/week1/handson/' style='padding:5px; margin:5px; color:black; text-decoration:none;'>Home</a> </nav> 
                  <header> 
                     <h1 style='margin-left:30px;'>This is your header header on date page? <h1/> 
                     <p style='margin-left:30px;'>Today\'s  date is {} </p>
