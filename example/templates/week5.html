@@ -3,16 +3,55 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}About Us {% endblock %}</title>
+    <title>{% block title %}Final project{% endblock %}</title>
+    <!-- {% comment %} {% block extralink %}
+    <link
+      rel="stylesheet"
+      href="{% static 'css/templ_css/week1.css' %}"
+      type="text/css"
+    />
+    <script src="{% static 'js/week5.js' %}"></script>
+    {% endblock %} {% endcomment %} -->
   </head>
   <body>
     {% block pagecontent %}
-    <div>
-      Week 5
-      <ol>
-        <li>We only eat bananas on Saturdays.</li>
-        <li>We love making playing football on rainy days.</li>
-      </ol>
+    <div class="containers week5">
+      <div class="labs">
+        <div class="header">
+          <h1 class="h1"></h1>
+        </div>
+        <div class="parag">
+          <div class="left_parag">
+            <br />
+            <span class="list-title"
+              >Here is the final project am working on</span
+            >
+            <hr />
+            <span class="list-text">understanding the project requirement</span>
+            <span class="list-text"
+              >Sharing to peers to learn from each other.</span
+            >
+          </div>
+        </div>
+        <div class="practice">
+          <div class="bg-success rounded-3 handson-lab">
+            Final lab
+            <br />
+            <br />
+            <span class="lab-text">Creating my first Django Website</span>
+            <button class="btn bg-primary">
+              <a
+                class="p-3 text-white"
+                id="handson-exercise"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="{%url 'lab5:index'%}"
+                >Dive</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     {% endblock %}
   </body>

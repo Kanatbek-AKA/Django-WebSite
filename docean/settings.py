@@ -32,6 +32,12 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'example.apps.ExampleConfig',
+    'week1.apps.Week1Config',
+    'week2.apps.Week2Config',
+    'week3.apps.Week3Config',
+    'week4.apps.Week4Config',
+    'week5.apps.Week5Config',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'example'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'docean.urls'
@@ -57,7 +63,7 @@ ROOT_URLCONF = 'docean.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'example', BASE_DIR / 'week2', BASE_DIR / 'week3', BASE_DIR / 'week4', BASE_DIR / 'week5'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,11 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -123,7 +126,9 @@ STATIC_URL = 'static/'
 # Add  following statics: 
 # STATICFILES_DIRS tuple tells Django where to look for static files that are not tied to a particular app.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'), 
+    os.path.join(BASE_DIR, 'static/templ_css/'), 
+    os.path.join(BASE_DIR, 'static/labs_css/'), 
 )
 # Using the collectstatic command, Django looks for all static files in your apps and collects them wherever you told it to, i.e. the STATIC_ROOT.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

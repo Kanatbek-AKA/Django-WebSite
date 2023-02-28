@@ -1,15 +1,40 @@
-from django.urls import include, path, re_path  # regex_path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
 from example import views
+from week1 import views1
+from week2 import views2
+from week3 import views3
+from week4 import views4
+from week5 import views5
 
+# app_name = 'example'
 urlpatterns = [
-    re_path(r'^$', views.HomePageView.as_view(), name='home'),  # URL has been named as home
-    re_path(r'^week1/$', views.Week1PageView.as_view(), name='week1'), 
-    re_path(r'^week2/$', views.Week2PageView.as_view(), name='week2'), 
-    re_path(r'^week3/$', views.Week3PageView.as_view(), name='week3'), 
-    re_path(r'^week4/$', views.Week4PageView.as_view(), name='week4'), 
-    re_path(r'^week5/$', views.Week5PageView.as_view(), name='week5'), 
+    path(route='', view=views.HomePageView.as_view(), name='home'),  # URL has been named as home
+    path(route='week1/', view=views.Week1PageView.as_view(), name='week1'), 
+    path(route='week2/', view=views.Week2PageView.as_view(), name='week2'), 
+    path(route='week3/', view=views.Week3PageView.as_view(), name='week3'), 
+    path(route='week4/', view=views.Week4PageView.as_view(), name='week4'), 
+    path(route='week5/', view=views.Week5PageView.as_view(), name='week5'), 
     # Hands-on Labs
-    re_path(r'^data/$', views.DataPageView.as_view(), name='data'),
+    # Week 1
+    path(route='handson/', view=views1.index, name='lab1'),
+    path(route='exercise1/handson/', view=views1.get_date, name='date'),
+    # Week 2
+    path('handson2/', include(('week2.urls', 'week2'), namespace='lab2')), # giving namespace
+    #  Week 3  need to fix 
+    path('handson3/', include(('week3.urls', 'week3'), namespace="lab3")),
+    # Week 4
+    path('handson4/', include(('week4.urls', 'week4'), namespace='lab4')),
+    # Week 5
+    path('handson5/', include(('week5.urls', 'week5'), namespace='lab5')),
+    
+    
+    # re_path(r'^registration/$', views.registration_request, name='registration'),
+    # re_path(r'^login/$', views.login_request, name='login'),
+    # re_path(r'^logout/$', views.logout_request, name='logout'),
     
     # Admin page
-]
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

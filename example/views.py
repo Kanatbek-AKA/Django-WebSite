@@ -1,24 +1,28 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView   # <<--
 
-# Add the two views defined in templates
+# Add views
 class HomePageView(TemplateView):
     template_name = "main.html"
+    #  do staff
     
 class Week1PageView(TemplateView):
     template_name = "week1.html"
+    #  do staff
 
 class Week2PageView(TemplateView):
     template_name = "week2.html"
+    #  do staff
 
 class Week3PageView(TemplateView):
     template_name = "week3.html"
-
+    #  do staff
 class Week4PageView(TemplateView):
     template_name = "week4.html"
-
+    #  do staff
 class Week5PageView(TemplateView):
     template_name = "week5.html"
+    #  do staff
 
 
 class DataPageView(TemplateView):

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Courses</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'labs_css/apps.css' %}">
+
+</head>
+<body>
+    <div>
+      <!-- Just get url path, it will be solved-->
+      <nav>
+        {% if request.path == '/handson2/week2/' %}
+          <li style='list-style-type:none;'>(`.-.`)</li>
+        {% elif request.path == '/handson2/onlinecourse/course' or request.path == '/handson2/onlinecourse/course/<int:id>' %}
+          <li><a href="handson2/week2/" style='text-decoration:none; color:darkgoldenrod;'>Home</a></li>
+        {% endif %}
+      </nav>
+    </div>
+
+    <h2>Popular courses list</h2>
+    
+    <!-- Add your template there -->
+    {% if course_list %}
+      <ul>
+        {% for course in course_list %}
+          <div class="container">
+            <div class="row">
+                <div class="column-33">
+              <img src="{{ MEDIA_URL }}/{{ course.image }}" width="360" height="360" />
+                </div>
+                <div class="column-66">
+              <h1 class="xlarge-font"><b>{{ course.name }}</b></h1>
+              <p style="color:mediumseagreen;"><b>{{ course.total_enrollment }} enrolled</b></p>
+              <p>{{ course.description }}</p>
+
+              <!-- Form to create a course view -->
+              <form action="{% url 'lab2/course:enroll' course.id %}" method="post">
+                  {% csrf_token %}     <!--Retrieved ....? -->
+                  <input type="submit" value="Enroll" class="button" />
+              </form>
+              </div>
+            </div>
+          </div>
+          <hr>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Course are available</p>
+    {% endif %}
+</body>
+</html>

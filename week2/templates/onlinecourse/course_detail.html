@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'labs_css/apps.css' %}"
+    />
+  </head>
+  <body>
+    <div>
+      <nav>
+        <li><a href="/handson/">Home</a></li>
+        <!-- <li><a href=""></a></li> -->
+        <!-- <li><a></a></li>        
+            <li><a></a></li> -->
+      </nav>
+    </div>
+
+    <!-- Add your template there -->
+    <div class="card">
+      <h2>{{ course.name }}</h2>
+      <h5>{{ course.description }}</h5>
+    </div>
+    <!-- Lessons -->
+    <h2>Lessons:</h2>
+    {% for lesson in course.lesson_set.all %}
+    <div class="card">
+      <h5>Lesson {{ lesson.order}} : {{lesson.title }}</h5>
+      <p>{{ lesson.content }}</p>
+    </div>
+    {% endfor %}
+  </body>
+</html>

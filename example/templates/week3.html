@@ -3,17 +3,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}About Us {% endblock %}</title>
+    <title>{% block title %} Django Development {% endblock %}</title>
+    <!-- {% comment %} {% block extralink %}
+    <link
+      rel="stylesheet"
+      href="{% static 'css/templ_css/week1.css' %}"
+      type="text/css"
+    />
+    <script src="{% static 'js/week3.js' %}"></script>
+    {% endblock %} {% endcomment %} -->
   </head>
   <body>
     {% block pagecontent %}
-    <div>
-      Week 3
-      <ol>
-        <li>We only eat bananas on Saturdays.</li>
-        <li>We love making playing football on rainy days.</li>
-      </ol>
+    <div class="containers week3">
+      <div class="labs">
+        <div class="header">
+          <h1 class="h1"></h1>
+        </div>
+        <div class="parag">
+          <div class="left_parag">
+            Django creating routes inside apps. I appreciate any suggestion to
+            improve this webpage
+          </div>
+        </div>
+        <div class="practice">
+          <div class="rounded-3 handson-lab">
+            Hands-on Lab
+            <br />
+            <br />
+            <span class="lab-text"> </span>
+            <button class="btn bg-primary">
+              <a
+                class="p-3 text-white"
+                id="handson-exercise"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="{%url 'lab3:popular_course_list2'%}"
+                >Dive</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     {% endblock %}
   </body>
 </html>
+a
