@@ -16,16 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-
 # Here used regular expression || you can use path removing ^ 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^', include('example.urls')),
-    # Tested 1-2 work weel than 3.. not
+    # Apps week1-5
     re_path(r'^week1/', include('week1.urls')),
     re_path(r'^week2/', include('week2.urls')),
     re_path(r'^week3/', include('week3.urls')),
     re_path(r'^week4/', include('week4.urls')),
-    re_path(r'^week5/', include('week5.urls')),  
+    re_path(r'^week5/', include('week5.urls')),
+    # Debug
+    # re_path(r'^__debug__/', include('debug_tool.urls'))
+
     
 ]

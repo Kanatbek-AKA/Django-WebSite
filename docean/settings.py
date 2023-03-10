@@ -21,16 +21,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o)(@$kk(eadb2rk*er*th+hnvgjfrqpv_(hq0topp@2zv902ak'
+SECRET_KEY = 'django-insecure-o)(@$kk(eadb2rk*er*th+hnvgjfrqpv_(hq0topp@2zv902ak'  # hide dotenv
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # False
+# wdb | pdb 
+# DEBUG_PROPOGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+# Email
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 50001
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = True
+
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # ['web....app']    
+# CSRF_TRUSTED_ORIGINS = ['https://...host.....app']
+# INTERNAL_IPS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'example.apps.ExampleConfig',
     'week1.apps.Week1Config',
@@ -45,16 +57,25 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django_cleanup.apps.CleanupConfig',
+    # 'django_pdb',
+    # 'django_extensions',
+    'component_tags',
+    'rest_framework',
+    'corsheaders',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     
 ]
 
@@ -63,7 +84,7 @@ ROOT_URLCONF = 'docean.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'example', BASE_DIR / 'week2', BASE_DIR / 'week3', BASE_DIR / 'week4', BASE_DIR / 'week5'],
+        'DIRS': [BASE_DIR / 'example', BASE_DIR / 'week2/templates', BASE_DIR / 'week3', BASE_DIR / 'week4', BASE_DIR / 'week5'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +109,16 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# CORS_ALLOWED_ORIGINS = ['https://domain.com', 'https://subdomain.com']
+# CORS_ALLOWED_ORIGIN_REGEXES = [r'^https://\w\.domain\.com$', etc...]
+# CORS_ALLOW_ALL_ORIGINS = [False]     # True is not allowed
+# CORS_ALLOW_METHODS = ['GET', 'DELETE', 'POST', 'PUT', 'PATCH', 'OPTIONS']
+# from corsheaders.defaults import default_methods
+# CORS_ALLOW_METHODS = list(default_methods) + ['POKE', 'GET', 'DELETE', 'POST', 'PUT', 'PATCH', 'OPTIONS']
+# CORS_ALLOW_HEADERS = ['accept', 'accept-enconding', 'authorization', 'content-type', 'dnt', 'origin', 'user-agent', 'x-csrftoken', 'x-requested-with']
+# CSRF_TRUSTED_ORIGINS = ['https://get.allowed.dom']
+#  more information on the website
 
 
 # Password validation

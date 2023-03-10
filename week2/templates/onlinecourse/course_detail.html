@@ -20,14 +20,16 @@
 
     <!-- Add your template there -->
     <div class="card">
-      <h2>{{ course.name }}</h2>
-      <h5>{{ course.description }}</h5>
+      <h2>{{ course2.name }}</h2>
+      <h5>{{ course2.description }}</h5>
     </div>
+
     <!-- Lessons -->
     <h2>Lessons:</h2>
-    {% for lesson in course.lesson_set.all %}
+
+    {% for lesson in course2.lesson_set.all %}
     <div class="card">
-      <h5>Lesson {{ lesson.order}} : {{lesson.title }}</h5>
+      <h5>Lesson {{ course2.order }} : {{lesson.title}}</h5>
       <p>{{ lesson.content }}</p>
     </div>
     {% endfor %}

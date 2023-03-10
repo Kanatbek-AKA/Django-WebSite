@@ -5,9 +5,9 @@ from . import views4
 
 urlpatterns = [
     
-    path(route='onlinecourse3/course3/<int:pk>/enroll/', view=views4.EnrollView2.as_view(), name='enroll3'),
+    path(route='onlinecourse3/course4/<int:pk>/enroll/', view=views4.EnrollView2.as_view(), name='enroll3'),
     path(route='onlinecourse3/', view=views4.CourseListView2.as_view(), name='popular_course_list3'),
-    path(route='onlinecourse3/course3/<int:pk>/', view=views4.CourseDetailsView2.as_view(), name='course_details3'),
+    path(route='onlinecourse3/course4/<int:pk>/', view=views4.CourseDetailsView2.as_view(), name='course_details3'),
     # Authentication related urls
     path('registration/', views4.registration_request, name='registration3'),
     path('login/', views4.login_request, name='login3'),

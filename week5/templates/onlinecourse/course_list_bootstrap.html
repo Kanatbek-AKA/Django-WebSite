@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% load static %}
+    {% load static i18n %}
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -22,7 +22,9 @@
             <a class="btn btn-link" href="#"
               >{{ user.first_name }}({{ user.username }})</a
             >
-            <a class="btn btn-link" href="{% url 'lab5:logoutF' %}">Logout</a>
+            <a class="btn btn-link" href="{% url 'lab5:logoutF' %}"
+              >Logout</a
+            >
           </li>
           {% else %}
           <li>
@@ -46,7 +48,9 @@
                   name="psw"
                 />
                 <button class="btn btn-primary" type="submit">Login</button>
-                <a class="btn btn-link" href="{% url 'lab5:registrationF' %}"
+                <a
+                  class="btn btn-link"
+                  href="{% url 'lab5:registrationF' %}"
                   >Sign Up</a
                 >
               </div>
@@ -58,11 +62,11 @@
     </nav>
 
     <!-- Page content -->
-    {% if course_list %}
+    {% if course_list5 %}
     <div class="container">
-      {% comment %} card-group {% endcomment %}
+      <!-- {% comment %} card-group {% endcomment %} -->
       <div class="card-deck">
-        {% for course in course_list %}
+        {% for course in course_list5 %}
         <div class="card" style="width: 36rem">
           <img
             class="card-img-left"
@@ -73,13 +77,16 @@
           />
           <div class="card-body bg-light">
             <h5 class="card-title">
-              {{ course.name }},
+              {{ course.name }}
               <span class="text-success">
                 {{ course.total_enrollment}} enrolled</span
               >
             </h5>
             <p class="card-text">{{ course.description}}</p>
-            <form action="{% url 'lab5:enrollF' course.id %}" method="post">
+            <form
+              action="{% url 'lab5:enrollF' course.id %}"
+              method="post"
+            >
               {% csrf_token %}
               <input
                 class="btn btn-primary"

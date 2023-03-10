@@ -23,7 +23,9 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">Online Course</a>
+          <a class="navbar-brand" href="{%url 'lab4:popular_course_list3'%}"
+            >Online Course</a
+          >
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -50,7 +52,7 @@
                 />
                 <input
                   type="password"
-                  placeholder="Username"
+                  placeholder="password"
                   name="psw"
                   class="form-control"
                 />
@@ -68,10 +70,10 @@
 
     <div class="container">
       <!--Stylize the root div with .container class -->
-      <h2>{{ course.name }}</h2>
+      <h2>{{ course4.name }}</h2>
       <div class="card-columns-vertical">
         <!--Stylize the second level card columns div with .card-columns-vertical class-->
-        {% for lesson in course.lesson_set.all %}
+        {% for lesson in course4.lesson_set.all %}
         <div class="card">
           <!--Stylize the third level lesson div with .card class-->
           <div class="card-header">

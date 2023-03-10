@@ -3,6 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views5
 
+
 urlpatterns = [
     # route is a string contains a URL pattern
     # view refers to the view function
@@ -15,11 +16,11 @@ urlpatterns = [
     # ex: /onlinecourse/5/
     path('project/course5/<int:pk>/', views5.CourseDetailView3.as_view(), name='course_detailsF'),
     # ex: /enroll/5/
-    path('project/course5/<int:course_id>/enroll/', views5.enroll, name='enrollF'),
+    path('project/course5/<int:course5_id>/enroll/', views5.enroll5, name='enrollF'),
 
     # <HINT> Create a route for submit view
-    path('project/course5/<int:course_id>/', views5.submit, name='submitF'),
+    path('project/course5/<int:course5_id>/submit/', views5.submit5, name='submitF'),
     # <HINT> Create a route for show_exam_result view
-    path('project/course5/<int:course_id>/', views5.show_exam_result, name='show_exam_resultF'),
+    path('project/course5/<int:course5_id>/submission/<int:submission5_id>/result/', views5.show_exam_result, name='show_exam_resultF'),
     
  ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

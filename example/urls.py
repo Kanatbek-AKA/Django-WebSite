@@ -22,7 +22,7 @@ urlpatterns = [
     path(route='week1/handson/exercise1/', view=views1.get_date, name='date'),
     # Week 2
     path('week2/handson2/', include(('week2.urls', 'week2'), namespace='lab2')), # giving namespace
-    #  Week 3  need to fix 
+    #  Week 3    
     path('week3/handson3/', include(('week3.urls', 'week3'), namespace="lab3")),
     # Week 4
     path('week4/handson4/', include(('week4.urls', 'week4'), namespace='lab4')),
