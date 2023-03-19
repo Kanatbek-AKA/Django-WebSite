@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o)(@$kk(eadb2rk*er*th+hnvgjfrqpv_(hq0topp@2zv902ak'  # hide dotenv
+SECRET_KEY = 'django-insecure-o)(@$kk(eadb2rk*er*th+hnvgjfrqpv_(hq0topp@2zv902ak'   
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -30,9 +30,12 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = []
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 # CSRF_TRUSTED_ORIGINS = ['https://...host.....app']
 # INTERNAL_IPS = []
-
+# CONN_MAX_AGE 
+CONN_HEALTH_CHECKS = True   # improve the robustness of connection
 
 # Application definition
 INSTALLED_APPS = [
