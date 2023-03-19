@@ -2,9 +2,9 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-<^>import environ
+import environ
 
-environ.Env.read_env()<^>
+environ.Env.read_env()
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'docean.settings')

@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,19 +25,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o)(@$kk(eadb2rk*er*th+hnvgjfrqpv_(hq0topp@2zv902ak'   
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ['DEBUG']
+
 # wdb | pdb
 # DEBUG_PROPOGATE_EXCEPTIONS = True
 
 
 ALLOWED_HOSTS = []
-SECURE_SSL_REDIRECT = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-LANGUAGE_COOKIE_DOMAIN = None
+SECURE_SSL_REDIRECT = True
+SECURE_BROWSER_XSS_FILTER = True
+
+# LANGUAGE_COOKIE_DOMAIN = None
 # CSRF_TRUSTED_ORIGINS = ['https://...host.....app']
 # INTERNAL_IPS = []
 # CONN_MAX_AGE = 0 # restrict

@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Here used regular expression || you can use path removing ^ 
 urlpatterns = [
-    re_path(r'^admin/', admin.site.urls),
+    path(env('SECRET_ADMIN_URL') + '/admin/', admin.site.urls),
+
+    #re_path(r'^admin/', admin.site.urls),
     re_path(r'^', include('example.urls')),
     # Apps week1-5
     re_path(r'^week1/', include('week1.urls')),
