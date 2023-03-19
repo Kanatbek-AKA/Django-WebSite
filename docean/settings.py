@@ -25,21 +25,13 @@ SECRET_KEY = 'django-insecure-o)(@$kk(eadb2rk*er*th+hnvgjfrqpv_(hq0topp@2zv902ak
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # False
-# wdb | pdb 
+# wdb | pdb
 # DEBUG_PROPOGATE_EXCEPTIONS = True
 
-# Email
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 50001
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
-# EMAIL_USE_TLS = True
 
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # ['web....app']    
+ALLOWED_HOSTS = []
 # CSRF_TRUSTED_ORIGINS = ['https://...host.....app']
-# INTERNAL_IPS = ['127.0.0.1', 'localhost']
+# INTERNAL_IPS = []
 
 
 # Application definition
