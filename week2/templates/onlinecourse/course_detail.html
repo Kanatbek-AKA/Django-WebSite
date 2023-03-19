@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'labs_css/apps.css' %}"
+    />
+  </head>
+  <body>
+    <div>
+      <nav>
+        <li><a href="/week2/handson2/onlinecourse1/">Home</a></li>
+      </nav>
+    </div>
+
+    <!-- Add your template there -->
+    <div class="card">
+      <h2>{{ course2.name }}</h2>
+      <h5>{{ course2.description }}</h5>
+    </div>
+
+    <!-- Lessons -->
+    <h2>Lessons:</h2>
+
+    {% for lesson in course2.lesson2_set.all %}
+    <div class="card">
+      <h5>Lesson {{ course2.order }} : {{lesson.title}}</h5>
+      <p>{{ lesson.content }}</p>
+    </div>
+    {% endfor %}
+  </body>
+</html>

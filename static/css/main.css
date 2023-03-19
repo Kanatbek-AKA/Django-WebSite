@@ -1,0 +1,84 @@
+/* CSS:  test replacing * to tag */
+* {
+  user-select: none;
+}
+*::selection {
+  background: none;
+}
+*::-moz-selection {
+  background: none;
+}
+
+.main {
+  background-color: #031633;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 10px auto;
+}
+
+.nav-item {
+  font-weight: bold;
+  color: #031633;
+  letter-spacing: 1.2px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: dodgerblue;
+  opacity: 0.7;
+}
+
+.nav-link:visited {
+  color: darkgoldenrod;
+}
+
+.logo {
+  width: 100px;
+  height: 50px;
+  filter: brightness(1) contrast(1);
+}
+
+/* .main_container {
+
+} */
+
+.header_main {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: block;
+  justify-content: space-between;
+  color: white;
+}
+
+.reg_header {
+  margin-top: -4.7cm;
+}
+
+.main_h1 {
+  margin-top: 15rem;
+  padding: 2rem;
+  letter-spacing: 1.5px;
+  font-size: 50px;
+  font-family: "Times New Roman", sans-serif;
+  text-shadow: 3px 3px 3px darkgreen, 1rem 0 1rem white, 1rem 0 1rem yellow;
+}
+
+.main_img,
+.main_badge {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  width: 400px;
+  height: 250px;
+  border-radius: 30%;
+}
+
+.footer {
+  height: 50px;
+}
+
+.txt-center {
+  padding: 10px;
+  margin-left: 20px;
+  text-shadow: none;
+}

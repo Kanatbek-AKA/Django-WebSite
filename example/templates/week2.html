@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}RDBMS{% endblock %}</title>
+    <!--
+    <link
+      rel="stylesheet"
+      href="{% static 'css/templ_css/week1.css' %}"
+      type="text/css"
+    />
+    <script src="{% static 'js/week2.js' %}"></script>
+    -->
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="containers week2">
+      <div class="labs">
+        <div class="header">
+          <h1 class="h1">
+            ORM: Bridging the Gap beetwen the real world and relational model
+          </h1>
+        </div>
+        <div class="parag">
+          <div class="left_parag">
+            You are aware that SQL is a powerful tool for working with
+            databases. But in the modern application development environment,
+            object-oriented programming is the most popular paradigm and it is
+            quite different from SQL. Is there a way to use Object-oriented
+            programming to work with databases? Discover how Object-oriented
+            Mapping (ORM) bridges the gap between OOP and SQL and allows
+            application developers to use OOP languages to work with databases
+            without writing SQL code. Gain skills in using Django ORM, a popular
+            ORM library for python, to define models and fields so they can be
+            mapped to database tables. Learn the steps for using Django ORM to
+            convert your entity-relationship diagrams into Django models. Gain
+            knowledge about using Django Model API to manupulate objects in
+            databases without writing SQL queries. Explore the many useful
+            methods Django Model provides to handle related objects.
+          </div>
+          <div class="right_parag">
+            <span class="list-title">Learning objectives</span>
+            <hr />
+            <span class="list-text"
+              >Describe the difference between the SQL paradigm and the
+              object-oriented programming paradigm</span
+            >
+            <span class="list-text">Explain the code concepts of ORM</span>
+            <span class="list-text">List the pros and cons of ORM</span>
+            <span class="list-text"
+              >Explain the core concepts of Django ORM</span
+            >
+            <span class="list-text"
+              >Convert your entity-relationship diagrams into Django
+              models</span
+            >
+            <span class="list-text"
+              >Perform CRUD operations on dtabase objects using Django models
+              APIs</span
+            >
+            <span class="list-text"
+              >Access and delete related objects using Django Model APIs</span
+            >
+          </div>
+        </div>
+        <div class="practice">
+          <div class="rounded-3 handson-lab">
+            Hands-on Lab
+            <br /><br />
+            <span class="lab-text">Create a Django Project in CLOUD IDE: </span>
+            <button class="btn bg-primary">
+              <a
+                class="p-3 text-white"
+                id="handson-exercise"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="{% url 'lab2:popular_course_list' %}"
+                >Dive</a
+              >
+              <!--{% comment %}  {% endcomment %}-->
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Courses</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'labs_css/apps.css' %}">
+    <!--{% comment %} {%block extrastyle %} {{block.super}}
+      <style>
+
+      </style>
+    {%endblock%} {% endcomment %} -->
+</head>
+<body>
+    <div>
+      <!-- Just get url path, it will be solved-->
+      <nav>
+        {% if request.path == '/week2/handson2/onlinecourse1/' %}
+          <li style='list-style-type:none;'>(`.-.`)</li>
+        {% endif %}
+      </nav>
+    </div>
+
+    <h2>Popular courses list</h2>
+    
+    <!-- Add your template there -->
+    {% if course_list2 %}
+      <ul>
+        {% for course2 in course_list2 %}
+          <div class="container">
+            <div class="row">
+                <div class="column-33">
+              <img src="{{ MEDIA_URL }}/{{ course2.image }}" width="360" height="360" />
+                </div>
+                <div class="column-66">
+              <h1 class="xlarge-font"><b>{{ course2.name }}</b></h1>
+              <p style="color:mediumseagreen;"><b>{{ course2.total_enrollment }} enrolled</b></p>
+              <p>{{ course2.description }}</p>
+              
+              <!-- Form to create a course view -->
+              <form action="{% url 'lab2:enroll' course2.id %}" method="post">
+                  {% csrf_token %}     <!--Retrieved ....? -->
+                  <input type="submit" value="Enroll" class="button" />
+                </form>
+              </div>
+            </div>
+          </div>
+          <hr>
+        {% endfor %}
+        </ul>
+  </div>
+    {% else %}
+        <p>No Course are available</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static i18n %}
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+
+    <!--{% comment %}<script defer src="{% get_static_prefix %}javascript/course.js"></script>{% endcomment %}  -->
+
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'lab5:index' %}">Home</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li>
+            <a class="btn btn-link" href="#"
+              >{{ user.first_name }}({{ user.username }})</a
+            >
+            <a class="btn btn-link" href="{% url 'lab5:logoutF' %}">Logout</a>
+          </li>
+          {% else %}
+          <li>
+            <form
+              class="form-inline"
+              action="{% url 'lab5:loginF' %}"
+              method="post"
+            >
+              {% csrf_token %}
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Username"
+                  name="username"
+                />
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="password"
+                  name="psw"
+                />
+                <button class="btn btn-primary" type="submit">Login</button>
+                <a class="btn btn-link" href="{% url 'lab5:registrationF' %}"
+                  >Sign Up</a
+                >
+              </div>
+            </form>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page content -->
+    <div class="container-fluid">
+      <h2>{{ course5.name }}</h2>
+      <div class="card-columns-vertical">
+        {% for lesson in course5.lesson5_set.all %}
+        <div class="card mt-1">
+          <div class="card-header">
+            <h5>Lesson {{ lesson.order }}: {{ lesson.title }}</h5>
+          </div>
+          <div class="card-body">{{lesson.content}}</div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Collapse if user is logged in -->
+      <input
+        value="Answer questions"
+        class="btn btn-primary"
+        type="button"
+        data-toggle="collapse"
+        data-target="#exam"
+      />
+      <div id="exam" class="collapse">
+        {% if user.is_authenticated %}
+        <input
+          type="button"
+          name="demo"
+          id="exam_warn"
+          value="Start Exam"
+          class="btn btn-info btn-block"
+        />
+        <br />
+        <div class="text-warning" id="txt_show"></div>
+        <!-- form  -->
+        <form
+          id="questionform"
+          action="{% url 'lab5:submitF' course5.id %}"
+          method="post"
+        >
+          {% for question in course5.question5_set.all %}
+          <div class="card mt-1">
+            <div class="card-header">
+              <h5>{{question.id }}. {{ question.question_text}}</h5>
+            </div>
+            {% csrf_token %}
+            <div class="form-group">
+              {% for choice in question.choice5_set.all %}
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input
+                    type="checkbox"
+                    name="choice_{{choice.id}}"
+                    class="form-check-input"
+                    id="{{choice.id}}"
+                    value="{{choice.id}}"
+                  />{{ choice }}
+                  <!--{% comment %} choice.choice_text with ABC did not display? {% endcomment %} -->
+                </label>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+          <input
+            class="btn btn-success btn-block"
+            type="submit"
+            value="Submit"
+            id="exam_warn_btn"
+          />
+        </form>
+        {% else %}
+        <div class="text-danger" style="padding-top: 15px">
+          Please login to take exam.
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+
+  <script>
+    "use strict";
+    // Question warning
+    window.onload = function () {
+      const exam_btn = document.querySelector("#exam_warn");
+      //const submit_btn = document.querySelector("#exam_warn_btn");
+      const txt = document.querySelector("#txt_show");
+
+      function showWarning() {
+        const checkbox = document.querySelectorAll(".form-check-input");
+        let checked = false;
+
+        for (let i = 0; i < checkbox.length; i++) {
+          if (checkbox[i].checked) {
+            checked = true;
+            break;
+          }
+        }
+
+        if (checked) {
+          txt.innerHTML =
+            "<strong style='color:red;'>Click on button submit below.</strong>";
+          // document.querySelector('form').submit();
+        } else {
+          txt.textContent = "Please check the boxes to submit your answer";
+          //   txt.classList.toggle("exam_warn--hidden");
+        }
+      }
+
+      exam_btn.addEventListener("click", function (elem) {
+        elem.preventDefault();
+        showWarning();
+      });
+    };
+  </script>
+</html>

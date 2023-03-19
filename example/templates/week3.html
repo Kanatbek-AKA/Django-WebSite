@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %} Django Development {% endblock %}</title>
+    <!-- {% comment %} {% block extralink %}
+    <link
+      rel="stylesheet"
+      href="{% static 'css/templ_css/week1.css' %}"
+      type="text/css"
+    />
+    <script src="{% static 'js/week3.js' %}"></script>
+    {% endblock %} {% endcomment %} -->
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="containers week3">
+      <div class="labs">
+        <div class="header">
+          <h1 class="h1">Full Stack Django Development</h1>
+        </div>
+        <div class="parag">
+          <div class="left_parag">
+            It is time to build your skills by creating a Django web app. In
+            this module, you will explore the Django Model-View-Template design
+            pattern and learn how Django models, views, and templates work
+            together to present data on a website. You will look at the typical
+            Django development process, starting with building a Django project
+            and creating and adding an app. Gain knowledge about the Django web
+            app structure. Learn the steps to create Django models and views,
+            add an HTML template, map the request URL to your views, and design
+            and build the UI. Next, use Django's powerful admin site
+            functionality to manage your site content. You will build an admin
+            site and create an admin user. You will specify the model fields on
+            the admin site and add UI features such as Search and Filter. Create
+            a Django view to receive an HTTP requst and send an HTTP response.
+            Discover how to combine Django views and templates to present your
+            data as dynamic web pages.
+          </div>
+          <div lass="right_parag">
+            <span class="list-title">Learning objectives</span>
+            <hr />
+            <span class="list-text"
+              >Describe the Model-View-Controller pattern</span
+            >
+            <span class="list-text"
+              >Describe the Django Model-View-Template pattern</span
+            >
+            <span class="list-text">Describe the Django web app structure</span>
+            <span class="list-text"
+              >Create and run a simple Django web app</span
+            >
+            <span class="list-text"
+              >Build an admin site to manage the content of an online course
+              app</span
+            >
+            <span class="list-text">Customize th admin site</span>
+            <span class="list-text">Create a Django view</span>
+            <span class="list-text"
+              >Combine Django views and template to present your data</span
+            >
+          </div>
+        </div>
+        <div class="practice">
+          <div class="rounded-3 handson-lab">
+            Hands-on Lab
+            <br />
+            <br />
+            <span class="lab-text">Create your first Django app: </span>
+            <button class="btn bg-primary">
+              <a
+                class="p-3 text-white"
+                id="handson-exercise"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="{%url 'lab3:popular_course_list2'%}"
+                >Dive</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>
+a

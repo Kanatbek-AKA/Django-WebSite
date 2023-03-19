@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Final project{% endblock %}</title>
+    <!-- {% comment %} {% block extralink %}
+    <link
+      rel="stylesheet"
+      href="{% static 'css/templ_css/week1.css' %}"
+      type="text/css"
+    />
+    <script src="{% static 'js/week5.js' %}"></script>
+    {% endblock %} {% endcomment %} -->
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="containers week5">
+      <div class="labs">
+        <div class="header">
+          <h1 class="h1">
+            Final Project: Enhance Oline course App with New Features
+          </h1>
+        </div>
+        <div class="parag">
+          <div class="left_parag">
+            <br />
+            <span class="list-title"
+              >Understand the project requirements about the new course
+              assessment feature</span
+            >
+            <hr />
+            <span class="list-text"
+              >Get and test the code template for the final project</span
+            >
+            <span class="list-text"
+              >Create a Github repository for saving and submitting your
+              work</span
+            >
+          </div>
+        </div>
+        <div class="practice">
+          <div class="bg-success rounded-3 handson-lab">
+            Final lab
+            <br />
+            <br />
+            <span class="lab-text">Create your first Django app: </span>
+            <button class="btn bg-primary">
+              <a
+                class="p-3 text-white"
+                id="handson-exercise"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="{%url 'lab5:index'%}"
+                >Dive</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

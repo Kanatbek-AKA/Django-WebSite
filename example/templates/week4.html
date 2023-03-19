@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Deploy Django App{% endblock %}</title>
+    <!-- {% comment %} {% block extralink %}
+    <link
+      rel="stylesheet"
+      href="{% static 'css/templ_css/week1.css' %}"
+      type="text/css"
+    />
+    <script src="{% static 'js/week4.js' %}"></script>
+    {% endblock %} {% endcomment %} -->
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="containers week4">
+      <div class="labs">
+        <div class="header">
+          <h1 class="h1">Consolidate and Deploy your Django App</h1>
+        </div>
+        <div class="parag">
+          <div class="left_parag">
+            Add to your Django skills by building a class-based view. Then,
+            learn how to speed up development using Django's generic-based
+            views. Next, you will learn about authentication and authorizationin
+            Django. Create a User model to handle authentication and work with
+            other models to handle authorization. Create a web login, logout,
+            and registration forms. Assign permissions to models and user
+            groups. You will then move on to Bootstrap, a free and open-source
+            web front-end framework. Learn how to quickly add Bootstrap o your
+            Django template to build stylized and interactive web pages. Next
+            explore how to add static files to your apps. Learn about the
+            webserver interface suppoerted by Django. And discover how
+            infrastructure as a Service (IaaS) and Platform as a Service (PaaS)
+            offerings can streamline app deployment. Explore the benefits if
+            deploying Django apps on IBM Cloud.
+          </div>
+          <div class="right_parag">
+            <span class="list-title">Learning objectives</span>
+            <hr />
+            <span class="list-text"
+              >Create class-based and generic class-based views</span
+            >
+            <span class="list-text"
+              >Compare the pros and cons of function -based views and
+              class-based views.</span
+            >
+            <span class="list-text"
+              >Define authentication and authorization.</span
+            >
+            <span class="list-text"
+              >Use Django user objects to perform authentication and
+              authorization.</span
+            >
+            <span class="list-text">Describe Bootstrap</span>
+            <span class="list-text"
+              >Integrate Bootstrap into your Django template</span
+            >
+            <span class="list-text"
+              >Explain how Django manages static files such CSS and media
+              files.</span
+            >
+            <span class="list-text"
+              >Explain how Django apps are deployed on web servers</span
+            >
+            <span class="list-text"
+              >Describe IBM Cloud platforms and their benefits</span
+            >
+          </div>
+        </div>
+        <div class="practice">
+          <div class="rounded-3 handson-lab">
+            Hands-on Lab
+            <br />
+            <br />
+            <span class="lab-text">Class based and Generic views:</span>
+            <button class="btn bg-primary">
+              <a
+                class="p-3 text-white"
+                id="handson-exercise"
+                rel="noopener noreferrer"
+                target="_blank"
+                href="{%url 'lab4:popular_course_list3'%}"
+                >Dive</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

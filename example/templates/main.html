@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <!-- It is body content of the base.html -->
+    {% block pagecontent %}
+    <div class="header_main">
+      <div class="reg_header">
+        <h1 class="main_h1">
+          Developing Application with SQL, Databases and Django
+        </h1>
+        <img
+          class="main_img"
+          src="{% static 'images/main_img.png' %}"
+          alt="mainimage"
+        />
+        <img
+          src="{% static 'images/django_badge.png' %}"
+          class="main_badge"
+          alt="badge"
+        />
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

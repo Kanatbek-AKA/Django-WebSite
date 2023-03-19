@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Introduction to Django SQL{% endblock %}</title>
+    <!--<link
+      rel="stylesheet"
+      href="{% static 'css/templ_css/week1.css' %}"
+      type="text/css"
+    />
+    <script src="{% static 'js/week1.js' %}"></script> -->
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="containers week1">
+      <div class="labs">
+        <div class="header">
+          <h1 class="h1">Getting started with SQL & Relational Databases</h1>
+        </div>
+        <div class="parag">
+          <div class="left_parag">
+            What is data? As you start this course, you will be introduced to
+            some concepts that are fundamentals to understanding data,
+            databases, and database management systems. You will learn some
+            basic statements. Explore the structure, use cases, and limitaions
+            of relational database. learn key relational database concepts,
+            including entities, attributes, entity-relationship data modeling,
+            common data types, and primary key. {% comment %} <br />
+            <br />
+            {% endcomment %}
+          </div>
+          <div class="right_parag">
+            <span class="list-title">Learning objectives</span>
+            <hr />
+            <span class="list-text">Define data and database</span>
+            <span class="list-text"
+              >Discuss use cases and limitations of relational databases</span
+            >
+            <span class="list-text"
+              >Describe relational database concepts such as entities,
+              attributes, entity-relationship models, and primary ley</span
+            >
+            <span class="list-text"
+              >Compose and Execute basic SQl statements - SELECT, INSERT,
+              UPDATE, DELETE</span
+            >
+            <span class="list-text"
+              >Explain th syntax and provide examples for ORDER BY and
+              CREATE/ALTER/DROP/TRUNCATE TABLE</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="practice">
+        <div class="rounded-3 handson-lab">
+          Hands-on Lab
+          <br />
+          <br />
+          <span class="lab-text">Relational Data Concepts: </span>
+          <button class="btn bg-primary">
+            <a
+              class="p-3 text-white"
+              id="handson-exercise"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="/week1/handson/"
+              >Dive</a
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+  </body>
+</html>
