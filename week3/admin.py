@@ -10,13 +10,13 @@ class LessonInline3(admin.StackedInline):
 # Register your models here.
 class CourseAdmin3(admin.ModelAdmin):
     inlines = [LessonInline3]
-    list_display = ('name', 'pub_date')
-    list_filter = ['pub_date']
-    search_fields = ['name', 'description']
+    list_display = ("name", "pub_date")
+    list_filter = ["pub_date"]
+    search_fields = ["name", "description"]
 
 
 class LessonAdmin3(admin.ModelAdmin):
-    list_display = ['title']
+    list_display = ["title"]
 
 
 admin.site.register(Course3, CourseAdmin3)

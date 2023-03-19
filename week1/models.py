@@ -129,7 +129,7 @@ from django.db import models
 #         (HONOR, 'Honor'),
 #         (BETA, 'BETA')
 #     ]
-     
+
 #     id = models.AutoField(primary_key=True)
 #     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 #     course = models.ForeignKey(Course, on_delete=models.CASCADE)

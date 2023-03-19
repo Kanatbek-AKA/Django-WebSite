@@ -21,18 +21,17 @@ env = environ.Env()
 environ.Env.read_env()
 
 
-# Here used regular expression || you can use path removing ^ 
+# Here used regular expression || you can use path removing ^
 urlpatterns = [
-    path(env('SECRET_ADMIN_URL') + '/admin/', admin.site.urls),
-
-    #re_path(r'^admin/', admin.site.urls),
-    re_path(r'^', include('example.urls')),
+    path(env("SECRET_ADMIN_URL") + "/admin/", admin.site.urls),
+    # re_path(r'^admin/', admin.site.urls),
+    re_path(r"^", include("example.urls")),
     # Apps week1-5
-    re_path(r'^week1/', include('week1.urls')),
-    re_path(r'^week2/', include('week2.urls')),
-    re_path(r'^week3/', include('week3.urls')),
-    re_path(r'^week4/', include('week4.urls')),
-    re_path(r'^week5/', include('week5.urls')),
+    re_path(r"^week1/", include("week1.urls")),
+    re_path(r"^week2/", include("week2.urls")),
+    re_path(r"^week3/", include("week3.urls")),
+    re_path(r"^week4/", include("week4.urls")),
+    re_path(r"^week5/", include("week5.urls")),
     # Debug
     # re_path(r'^__debug__/', include('debug_tool.urls'))
 ]

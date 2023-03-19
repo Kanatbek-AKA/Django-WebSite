@@ -1,3 +1,3 @@
 from django.contrib import admin
 
-# Image here is admin code 
+# Image here is admin code

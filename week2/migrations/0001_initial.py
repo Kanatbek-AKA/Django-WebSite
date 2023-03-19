@@ -16,63 +16,116 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Course2',
+            name="Course2",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(default='online course', max_length=30)),
-                ('image', models.ImageField(upload_to='course_images/')),
-                ('description', models.CharField(max_length=1000)),
-                ('pub_date', models.DateField(null=True)),
-                ('total_enrollment', models.IntegerField(default=0)),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(default="online course", max_length=30)),
+                ("image", models.ImageField(upload_to="course_images/")),
+                ("description", models.CharField(max_length=1000)),
+                ("pub_date", models.DateField(null=True)),
+                ("total_enrollment", models.IntegerField(default=0)),
             ],
         ),
         migrations.CreateModel(
-            name='Lesson2',
+            name="Lesson2",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('title', models.CharField(default='title', max_length=200)),
-                ('order', models.IntegerField(default=0)),
-                ('content', models.TextField()),
-                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='week2.course2')),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("title", models.CharField(default="title", max_length=200)),
+                ("order", models.IntegerField(default=0)),
+                ("content", models.TextField()),
+                (
+                    "course",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="week2.course2"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Learner2',
+            name="Learner2",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('occupation', models.CharField(choices=[('student', 'Student'), ('developer', 'Developer'), ('data_scientist', 'Data Scientist'), ('dba', 'Database Admin')], default='student', max_length=20)),
-                ('social_link', models.URLField()),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                (
+                    "occupation",
+                    models.CharField(
+                        choices=[
+                            ("student", "Student"),
+                            ("developer", "Developer"),
+                            ("data_scientist", "Data Scientist"),
+                            ("dba", "Database Admin"),
+                        ],
+                        default="student",
+                        max_length=20,
+                    ),
+                ),
+                ("social_link", models.URLField()),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Instructor2',
+            name="Instructor2",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('full_time', models.BooleanField(default=True)),
-                ('total_learners', models.IntegerField()),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("full_time", models.BooleanField(default=True)),
+                ("total_learners", models.IntegerField()),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Enrollment2',
+            name="Enrollment2",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('date_enrolled', models.DateField(default=django.utils.timezone.now)),
-                ('mode', models.CharField(choices=[('audit', 'Audit'), ('honor', 'Honor'), ('BETA', 'BETA')], default='audit', max_length=5)),
-                ('rating', models.FloatField(default=5.0)),
-                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='week2.course2')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("date_enrolled", models.DateField(default=django.utils.timezone.now)),
+                (
+                    "mode",
+                    models.CharField(
+                        choices=[
+                            ("audit", "Audit"),
+                            ("honor", "Honor"),
+                            ("BETA", "BETA"),
+                        ],
+                        default="audit",
+                        max_length=5,
+                    ),
+                ),
+                ("rating", models.FloatField(default=5.0)),
+                (
+                    "course",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="week2.course2"
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='course2',
-            name='instructors',
-            field=models.ManyToManyField(to='week2.instructor2'),
+            model_name="course2",
+            name="instructors",
+            field=models.ManyToManyField(to="week2.instructor2"),
         ),
         migrations.AddField(
-            model_name='course2',
-            name='users',
-            field=models.ManyToManyField(through='week2.Enrollment2', to=settings.AUTH_USER_MODEL),
+            model_name="course2",
+            name="users",
+            field=models.ManyToManyField(
+                through="week2.Enrollment2", to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

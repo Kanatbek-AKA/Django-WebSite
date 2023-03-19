@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 # from .models import Course, Instructor, Lesson
 
 # # Associate related models a way to add Inline objects on a single model managing page
@@ -13,12 +14,12 @@ from django.contrib import admin
 #     inlines = [LessonInline]                      # <<--
 
 
-# # Practice 
+# # Practice
 # class InstructorAdmin(admin.ModelAdmin):
 #     fields= ['user', 'full_time']
 
 
 # # Once you registered admin create managing pages  Course & Instructor
-# admin.site.register(Course, CourseAdmin)  
-# admin.site.register(Instructor, InstructorAdmin) 
+# admin.site.register(Course, CourseAdmin)
+# admin.site.register(Instructor, InstructorAdmin)
 # admin.site.register(Lesson)

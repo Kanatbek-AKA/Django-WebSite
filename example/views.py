@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView   
+from django.views.generic import TemplateView
 
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+
 
 class HomePageView(TemplateView):
     template_name = "main.html"
