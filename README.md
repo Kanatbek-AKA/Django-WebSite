@@ -1,3 +1,7 @@
 # Django-WebSite
 <br>
-<b>The website will contain the hands-on Lab and final project application by accomploshing the course</b>
+The website contains the hands-on Labs and final project application of the course IBM Django fundamentals. 
+
+
+
+
