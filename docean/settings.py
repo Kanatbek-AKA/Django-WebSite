@@ -30,11 +30,13 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = []
+SECURE_SSL_REDIRECT = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+LANGUAGE_COOKIE_DOMAIN = None
 # CSRF_TRUSTED_ORIGINS = ['https://...host.....app']
 # INTERNAL_IPS = []
-# CONN_MAX_AGE 
+# CONN_MAX_AGE = 0 # restrict
 CONN_HEALTH_CHECKS = True   # improve the robustness of connection
 
 # Application definition
