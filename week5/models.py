@@ -140,16 +140,15 @@ class Submission5(models.Model):
         return "self.pk"
 
 
-# TODO store grade and answers to questions
-# Exams grades to link with foreign key and add a colum examgrades above in class lessons or learner
-class examGrades5(models.Model):
-    id = models.AutoField(primary_key=True)
-    course = models.ForeignKey(Course5, on_delete=models.CASCADE)
-    #    learner = models.ForeignKey(Learner, on_delete=models.CASCADE)
-    #    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    exam_question = models.ManyToManyField(Question5)
-    exam_answer = models.ManyToManyField(Choice5)
-    grade = models.FloatField(default=0)
+# TODO store grade and answers for each question
+# class examGrades5(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     course = models.ForeignKey(Course5, on_delete=models.CASCADE)
+#     #    learner = models.ForeignKey(Learner, on_delete=models.CASCADE)
+#     #    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+#     exam_question = models.ManyToManyField(Question5)
+#     exam_answer = models.ManyToManyField(Choice5)
+#     grade = models.FloatField(default=0)
 
-    def __str__(self):
-        return self.exam_answer + "\n" + self.grade
+#     def __str__(self):
+#         return self.exam_answer + "\n" + self.grade
