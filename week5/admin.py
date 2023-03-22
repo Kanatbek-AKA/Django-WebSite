@@ -12,7 +12,6 @@ from .models import (
     examGrades5,
 )
 
-# <HINT> Register QuestionInline and ChoiceInline classes here
 class QuestionInLine5(admin.StackedInline):
     model = Question5
     extra = 6
@@ -27,11 +26,10 @@ class LessonInline5(admin.StackedInline):
     model = Lesson5
     extra = 5
 
-
-# Additional
-class ExameGradeInline5(admin.StackedInline):
-    list_display = ["course5", "exam_question", "exam_answer", "grade"]
-    model = examGrades5
+# 
+# class ExameGradeInline5(admin.StackedInline):
+#     list_display = ["course5", "exam_question", "exam_answer", "grade"]
+#     model = examGrades5
 
 
 # Register your models here.
@@ -48,12 +46,11 @@ class LessonAdmin(admin.ModelAdmin):
     list_display = ["title"]
 
 
-# <HINT> Register Question and Choice models here
+
 admin.site.register(Question5)  #
 admin.site.register(Choice5)  #
 # admin.site.register(Course, CourseAdmin)     # Or define register of Course here
 # admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Instructor5)
 admin.site.register(Learner5)
-#
 admin.site.register(examGrades5)
